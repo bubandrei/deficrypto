@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Featured.css';
-import BTC from '../assets/btc-img.png';
+// import BTC from '../assets/btc-img.png';
 import { FiArrowUpRight, FiArrowDownRight } from 'react-icons/fi';
 import axios from "axios";
 
@@ -19,9 +19,12 @@ const Featured = () => {
         }).catch((error) => {
             console.log(error)
         })
-    }, [];)
+    }, [])
 
-
+    console.log(data)
+    if (!data) {
+        return null
+    }
 
 
     return (
@@ -38,13 +41,29 @@ const Featured = () => {
                 {/* right side */}
                 <div className="right">
                     <div className="top">
-                        <img src={BTC} alt='/' />
+                        {/* <img src={BTC} alt='/' /> */}
+                        <img src={data[0].image} alt='/' />
                     </div>
                     <div>
-                        <h5>Bitcoin</h5>
-                        <p>$49,000</p>
+                        <h5>{data[0].name}</h5>
+                        <p>${data[0].current_price.toLocaleString()}</p>
                     </div>
-                    <span><FiArrowUpRight />2.5%</span>
+
+                    {data[0].price_change_percentage_24h < 0 ? (
+                        <span className="red">
+                            <FiArrowDownRight />
+                            {data[0].price_change_percentage_24h.toFixed(2)}%
+                        </span>
+                    ) : (
+                        <span className="green">
+                            <FiArrowUpRight />
+                            {data[0].price_change_percentage_24h.toFixed(2)}%
+                        </span>
+                    )}
+
+
+
+                    {/* <span><FiArrowUpRight />2.5%</span> */}
                 </div>
 
 
