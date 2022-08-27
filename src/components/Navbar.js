@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="header">
             <div className="container">
                 <h1>De<span className="primary">Fi</span></h1>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <ul className={click?'nav-menu active' : 'nav-menu'}>
                     <li>
                         <a href="/">Home</a>
                     </li>
@@ -31,9 +31,9 @@ const Navbar = () => {
                 <div className="btn-group">
                     <button className="btn">Connect Wallet</button>
                 </div>
-                <div className="hamburger" onClick={handleClick}>
-                    {click ? (<FaTimes size={20} style={{ color: '#333' }} />) : (<FaBars size={20} style={{ color: '#333' }} />)}
-
+                <div className="hamburger"  onClick={handleClick}>
+                    {click?(<FaTimes size={20} style={{ color: '#333' }}/>): (<FaBars size={20} style={{ color: '#333' }}/>)}
+                   
                 </div>
             </div>
 
