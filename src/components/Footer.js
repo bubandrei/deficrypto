@@ -36,6 +36,15 @@ const Footer = () => {
                         <a href='/'>Privacy</a>
                     </span>
                 </div>
+                <div className='col'>
+                    <h5>Social</h5>
+                    <span className='bar'>
+                        <a href='/'><FaFacebook className='icon'/></a>
+                        <a href='/'><FaTwitter className='icon'/></a>
+                        <a href='/'><FaLinkedin className='icon'/></a>
+                        <a href='/'><FaGithub className='icon'/></a>
+                    </span>
+                </div>
             </div>
 
         </div>
